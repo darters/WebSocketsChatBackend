@@ -17,8 +17,6 @@ public class WebSocketInterceptor implements ChannelInterceptor {
             StompCommand stompCommand = accessor.getCommand();
             if(StompCommand.CONNECT.equals(stompCommand)) {
                 String token = accessor.getFirstNativeHeader("Authorization");
-                System.out.println("!!!!!!!!!!!!!!!!AUTHORIZATION!!!!!!!!!!!!!!!!!!");
-                System.out.println(token);
             }
         } else {
             System.out.println("ACCESSOR IS NULL");
