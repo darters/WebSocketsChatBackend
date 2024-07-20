@@ -27,4 +27,8 @@ public class UserController {
         userService.updateUserStatus(userStatusRequest.getUserId(), userStatusRequest.getStatus());
         return ResponseEntity.ok("User set status " + userStatusRequest.getStatus());
     }
+    @GetMapping("/getStatus/{userId}")
+    public UserStatusEnum getUserStatus(@PathVariable String userId) {
+        return userService.getUserStatusById(userId);
+    }
 }

@@ -26,7 +26,11 @@ public class UserService {
         Query query = new Query(Criteria.where("_id").is(userId));
         Update update = new Update().set("userStatus", userStatusEnum);
         mongoTemplate.updateMulti(query, update, User.class);
-        System.out.println(userId + "FFJDSKFJKDSFJKJJJJJJJJJS");
+    }
+    public UserStatusEnum getUserStatusById(String userId) {
+        Query query = new Query(Criteria.where("_id").is(userId));
+        User user = mongoTemplate.findOne(query, User.class);
+        return user.getUserStatus();
     }
     public User getByUsername(String username) {
         return userRepository.findUserByUsername(username)
